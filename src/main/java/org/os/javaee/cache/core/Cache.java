@@ -6,7 +6,7 @@ package org.os.javaee.cache.core;
  * <p>Copyright: Copyright (c) 2013</p>
  * <p>Company: Open Source Development.</p>
  * @author Murali Reddy
- * @version 1.0
+ * @version 1.0 
  */
 public interface Cache<K,V> {
 
@@ -22,6 +22,8 @@ public interface Cache<K,V> {
 	public boolean containsKey(K key);
 	
 	/**
+	 * Returns the value for the provided key
+	 * 
 	 * @param key
 	 * @return
 	 */
