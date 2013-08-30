@@ -12,6 +12,12 @@ public interface CacheManager{
 
     /**
      * @param cacheName
+     * @param configuration
+     * @return
+     */
+    <K, V> Cache<K, V> createCache(String cacheName,CacheConfiguration<?> configuration);
+    /**
+     * @param cacheName
      */
     public void destroyCache(String cacheName);
 
@@ -20,4 +26,9 @@ public interface CacheManager{
      * @return
      */
     public <K, V> Cache<K, V> getCache(String cacheName);
+    
+    /**
+     * @return
+     */
+    Iterable<String> getCacheNames();
 }

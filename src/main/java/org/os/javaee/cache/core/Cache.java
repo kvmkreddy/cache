@@ -1,5 +1,8 @@
 package org.os.javaee.cache.core;
 
+import java.util.Map;
+import java.util.Set;
+
 /**
  * <p>Title: Cache</p>
  * <p><b>Description:</b> Cache</p>
@@ -10,11 +13,6 @@ package org.os.javaee.cache.core;
  */
 public interface Cache<K,V> {
 
-	/**
-	 * 
-	 */
-	public void clear();
-	
 	/**
 	 * @param key
 	 * @return
@@ -30,14 +28,38 @@ public interface Cache<K,V> {
 	public V get(K key);
 	
 	/**
+	 * @return
+	 */
+	public Map<? extends K, ? extends V> getAll(Set<? extends K> keys);
+	
+	/**
+	 * @return
+	 */
+	public Map<? extends K, ? extends V> getAll();
+	/**
 	 * @param key
 	 * @param value
 	 */
 	public void put(K key, V value);
 	
 	/**
+	 * @param map
+	 */
+	public void putAll(Map<? extends K, ? extends V> map);
+	/**
 	 * @param key
 	 * @return
 	 */
 	public boolean remove(K key);
+	
+	/**
+	 * @param map
+	 * @return
+	 */
+	public boolean removeAll(java.util.Map<? extends K, ? extends V> map);
+
+	/**
+	 * @return
+	 */
+	public boolean removeAll();
 }
