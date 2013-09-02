@@ -34,7 +34,6 @@ public class EHCacheManagerImplTest {
 		cacheConfiguration = ctx.getBean("cacheConfiguration", CacheConfiguration.class);
 	}
 	
-	
 	@After
 	public void cleanCache(){
 		cacheManager.destroyCache(CACHE_NAME);
