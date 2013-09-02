@@ -16,6 +16,11 @@
 
 	<context:annotation-config/>
 	
-	<context:component-scan base-package="org.os.javaee.cache"/>
-	
+	<bean id="cacheManager" class="org.os.javaee.cache.impl.ehcache.EHCacheManagerImpl"/>
+
+	<bean id="cacheConfiguration" class="net.sf.ehcache.config.CacheConfiguration">
+		<property name="name" value="MyCacheConfig"></property>
+		<property name="maxEntriesLocalHeap" value="10000"></property>
+	</bean>
+		
 </beans>

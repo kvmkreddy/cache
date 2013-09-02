@@ -56,10 +56,16 @@ public interface Cache<K,V> {
 	 * @param map
 	 * @return
 	 */
-	public boolean removeAll(java.util.Map<? extends K, ? extends V> map);
+	public void removeAll(java.util.Map<? extends K, ? extends V> map);
 
 	/**
 	 * @return
 	 */
-	public boolean removeAll();
+	public void removeAll();
+	
+	/**
+	 * @param clazz
+	 * @return
+	 */
+	public <T> T getCacheImpl();
 }

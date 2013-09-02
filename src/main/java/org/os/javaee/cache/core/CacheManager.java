@@ -8,14 +8,14 @@ package org.os.javaee.cache.core;
  * @author Murali Reddy
  * @version 1.0
  */
-public interface CacheManager{
+public interface CacheManager<T>{
 
     /**
      * @param cacheName
      * @param configuration
      * @return
      */
-    <K, V> Cache<K, V> createCache(String cacheName,CacheConfiguration<?> configuration);
+    <K, V> Cache<K, V> createCache(String cacheName,T configuration);
     /**
      * @param cacheName
      */

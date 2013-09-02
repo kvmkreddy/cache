@@ -8,6 +8,7 @@ package org.os.javaee.cache.core;
  * @author Murali Reddy
  * @version 1.0
  */
+@Deprecated
 public interface CacheConfiguration<T> {
 
 	/**
