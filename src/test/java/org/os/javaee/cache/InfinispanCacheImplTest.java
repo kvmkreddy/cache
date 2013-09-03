@@ -1,10 +1,6 @@
 package org.os.javaee.cache;
 
-import static org.junit.Assert.fail;
-
 import java.util.Map;
-
-import net.sf.ehcache.Element;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -88,6 +84,10 @@ public class InfinispanCacheImplTest {
 		Assert.assertNotNull(allCachedData.containsKey(KEY_TWO));
 		Assert.assertNotNull(allCachedData.containsValue(VALUE_ONE));
 		Assert.assertNotNull(allCachedData.containsValue(VALUE_TWO));
+		Assert.assertTrue(allCachedData.containsKey(KEY_ONE));
+		Assert.assertTrue(allCachedData.containsKey(KEY_TWO));
+		Assert.assertTrue(allCachedData.containsValue(VALUE_ONE));
+		Assert.assertTrue(allCachedData.containsValue(VALUE_TWO));
 	}
 
 	@Test
@@ -101,25 +101,92 @@ public class InfinispanCacheImplTest {
 		Assert.assertNotNull(allCachedData.size() == 1);
 		Assert.assertNotNull(allCachedData.containsKey(KEY_ONE));
 		Assert.assertNotNull(allCachedData.containsValue(VALUE_ONE));
+		Assert.assertTrue(allCachedData.containsKey(KEY_ONE));
+		Assert.assertTrue(allCachedData.containsValue(VALUE_ONE));
 	}
 
 	@Test
 	public final void putAll() {
-		fail("Not yet implemented"); // TODO
+		Cache<Object,Object> cache = cacheManager.getCache(CACHE_NAME);
+		cache.put(KEY_ONE, VALUE_ONE);
+		cache.put(KEY_TWO, VALUE_TWO);
+
+		Map<? extends Object,? extends Object> allCachedData = cache.getAll();
+		Assert.assertNotNull(allCachedData);
+		Assert.assertNotNull(allCachedData.size());
+		Assert.assertNotNull(allCachedData.size() == 2);
+		Assert.assertNotNull(allCachedData.containsKey(KEY_ONE));
+		Assert.assertNotNull(allCachedData.containsKey(KEY_TWO));
+		Assert.assertNotNull(allCachedData.containsValue(VALUE_ONE));
+		Assert.assertNotNull(allCachedData.containsValue(VALUE_TWO));
+		Assert.assertTrue(allCachedData.containsKey(KEY_ONE));
+		Assert.assertTrue(allCachedData.containsKey(KEY_TWO));
+		Assert.assertTrue(allCachedData.containsValue(VALUE_ONE));
+		Assert.assertTrue(allCachedData.containsValue(VALUE_TWO));
 	}
 
 	@Test
 	public final void remove() {
-		fail("Not yet implemented"); // TODO
+		Cache<Object,Object> cache = cacheManager.getCache(CACHE_NAME);
+		cache.put(KEY_ONE, VALUE_ONE);
+		cache.put(KEY_TWO, VALUE_TWO);
+		
+		Map<? extends Object,? extends Object> allCachedData = cache.getAll();
+		Assert.assertNotNull(allCachedData);
+		Assert.assertNotNull(allCachedData.size());
+		Assert.assertNotNull(allCachedData.size() == 1);
+		Assert.assertNotNull(allCachedData.containsKey(KEY_ONE));
+		Assert.assertNotNull(allCachedData.containsValue(VALUE_ONE));
+		Assert.assertTrue(allCachedData.containsKey(KEY_ONE));
+		Assert.assertTrue(allCachedData.containsValue(VALUE_ONE));
+
+		cache.remove(KEY_ONE);
+		Map<? extends Object,? extends Object> allCachedDataPostRemoval = cache.getAll();
+		Assert.assertNotNull(allCachedDataPostRemoval);
+		Assert.assertNotNull(allCachedDataPostRemoval.size());
+		Assert.assertNotNull(allCachedDataPostRemoval.size() == 0);
+		Assert.assertNotNull(allCachedDataPostRemoval.containsKey(KEY_ONE));
+		Assert.assertNotNull(allCachedDataPostRemoval.containsValue(VALUE_ONE));
+		Assert.assertFalse(allCachedDataPostRemoval.containsKey(KEY_ONE));
+		Assert.assertFalse(allCachedDataPostRemoval.containsValue(VALUE_ONE));
 	}
 
 	@Test
 	public final void removeAll() {
-		fail("Not yet implemented"); // TODO
+		Cache<Object,Object> cache = cacheManager.getCache(CACHE_NAME);
+		cache.put(KEY_ONE, VALUE_ONE);
+		cache.put(KEY_TWO, VALUE_TWO);
+		
+		Map<? extends Object,? extends Object> allCachedData = cache.getAll();
+		Assert.assertNotNull(allCachedData);
+		Assert.assertNotNull(allCachedData.size());
+		Assert.assertNotNull(allCachedData.size() == 1);
+		Assert.assertNotNull(allCachedData.containsKey(KEY_ONE));
+		Assert.assertNotNull(allCachedData.containsValue(VALUE_ONE));
+		Assert.assertTrue(allCachedData.containsKey(KEY_ONE));
+		Assert.assertTrue(allCachedData.containsKey(KEY_TWO));
+		Assert.assertTrue(allCachedData.containsValue(VALUE_ONE));
+		Assert.assertTrue(allCachedData.containsValue(VALUE_TWO));
+
+		cache.remove(KEY_ONE);
+		cache.remove(KEY_TWO);
+		Map<? extends Object,? extends Object> allCachedDataPostRemoval = cache.getAll();
+		Assert.assertNotNull(allCachedDataPostRemoval);
+		Assert.assertNotNull(allCachedDataPostRemoval.size());
+		Assert.assertNotNull(allCachedDataPostRemoval.size() == 0);
+		Assert.assertNotNull(allCachedDataPostRemoval.containsKey(KEY_ONE));
+		Assert.assertNotNull(allCachedDataPostRemoval.containsValue(VALUE_ONE));
+		Assert.assertNotNull(allCachedDataPostRemoval.containsKey(KEY_TWO));
+		Assert.assertNotNull(allCachedDataPostRemoval.containsValue(VALUE_TWO));
+		Assert.assertFalse(allCachedDataPostRemoval.containsKey(KEY_ONE));
+		Assert.assertFalse(allCachedDataPostRemoval.containsKey(KEY_TWO));
+		Assert.assertFalse(allCachedDataPostRemoval.containsValue(VALUE_ONE));
+		Assert.assertFalse(allCachedDataPostRemoval.containsValue(VALUE_TWO));
 	}
 
 	@Test
 	public final void getCacheImpl() {
-		fail("Not yet implemented"); // TODO
+		Cache<Object,Object> cache = cacheManager.getCache(CACHE_NAME);
+		Assert.assertTrue(cache.getCacheImpl() instanceof org.infinispan.Cache); 
 	}
 }
