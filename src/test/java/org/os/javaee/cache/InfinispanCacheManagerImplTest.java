@@ -14,14 +14,14 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * <p>Title: InfinispanCacheMaangerImplTest</p>
- * <p><b>Description:</b> InfinispanCacheMaangerImplTest</p>
+ * <p>Title: InfinispanCacheManagerImplTest</p>
+ * <p><b>Description:</b> InfinispanCacheManagerImplTest</p>
  * <p>Copyright: Copyright (c) 2013</p>
  * <p>Company: Open Source Development.</p>
- * @author Murali Reddy
  * @version 1.0
+ * @author Murali Reddy
  */
-public class InfinispanCacheMaangerImplTest {
+public class InfinispanCacheManagerImplTest {
 
 	private static CacheManagerImpl cacheManager;
 	private static org.infinispan.configuration.cache.Configuration cacheConfiguration;
@@ -78,6 +78,7 @@ public class InfinispanCacheMaangerImplTest {
 		Assert.assertNotNull(cache);
 		cacheManager.destroyCache(CACHE_NAME);
 		Cache<?,?> destoryedCache = cacheManager.getCache(CACHE_NAME);
+		//TODO --> Test case is failing here. Needs to fix it.
 		Assert.assertNull(destoryedCache);
 	}
 
