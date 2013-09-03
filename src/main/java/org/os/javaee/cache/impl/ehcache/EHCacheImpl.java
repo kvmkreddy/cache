@@ -64,10 +64,9 @@ public class EHCacheImpl implements Cache<Object, Element> {
 		return ehCache.remove(key);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public void removeAll(Map<? extends Object, ? extends Element> map) {
-		ehCache.removeAll((Collection<Element>)map.values());
+	public void removeAll(Collection<? extends Object> collection) {
+		ehCache.removeAll(collection);
 	}
 
 	@Override

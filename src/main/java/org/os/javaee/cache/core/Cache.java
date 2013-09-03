@@ -1,5 +1,6 @@
 package org.os.javaee.cache.core;
 
+import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 
@@ -56,7 +57,7 @@ public interface Cache<K,V> {
 	 * @param map
 	 * @return
 	 */
-	public void removeAll(java.util.Map<? extends K, ? extends V> map);
+	public void removeAll(Collection<? extends K> collection);
 
 	/**
 	 * @return
