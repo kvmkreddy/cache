@@ -129,11 +129,10 @@ public class CacheImpl implements
 	return false;
     }
 
-    @Override
-    public <T> T getCacheImpl() {
-	// TODO Auto-generated method stub
-	return null;
-    }
+    /*
+     * @Override public <T> T getCacheImpl() { // TODO Auto-generated method
+     * stub return null; }
+     */
 
     @Override
     public Object getAndPut(final Object key, final Object value) {
