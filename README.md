@@ -11,4 +11,4 @@ Find the below class diagram for core cache service API and the corresponding im
  ![CacheDesign][1]
 
 
-[1]:https://github.com/kvmkreddy/cache/blob/master/design/Cache_ClassDiagram.gif "CacheDesign"
+[1]:https://github.com/kvmkreddy/cache/blob/master/design/Cache_ClassDiagram.gif?raw=true "CacheDesign"

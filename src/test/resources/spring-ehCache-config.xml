@@ -16,9 +16,9 @@
 
 	<context:annotation-config/>
 	
-	<bean id="cacheManager" class="org.os.javaee.cache.impl.ehcache.EHCacheManagerImpl"/>
+	<bean id="ehCacheManager" class="org.os.javaee.cache.impl.ehcache.EHCacheManagerImpl"/>
 
-	<bean id="cacheConfiguration" class="net.sf.ehcache.config.CacheConfiguration">
+	<bean id="ehCacheConfiguration" class="net.sf.ehcache.config.CacheConfiguration">
 		<property name="name" value="MyCacheConfig"></property>
 		<property name="maxEntriesLocalHeap" value="10000"></property>
 	</bean>
